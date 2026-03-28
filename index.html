@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="T Vijay Karthik">
+    <meta name="location" content="Andhra Pradesh, India">
+    <meta name="description" content="Digital Heroes Premium Shopify Store by T Vijay Karthik - Best quality products from Andhra Pradesh, India">
+    <title>Digital Heroes | Premium Shopify Store - T Vijay Karthik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            color: #2d3436;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 0;
+            font-size: 13px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .owner-info, .contact-info, .announcement {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .owner-info i, .contact-info i, .announcement i {
+            font-size: 14px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #2d3436;
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-wrapper input {
+            padding: 10px 35px 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            width: 250px;
+            transition: 0.3s;
+        }
+
+        .search-wrapper input:focus {
+            outline: none;
+            border-color: #667eea;
+            width: 300px;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .cart-icon, .user-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 24px;
+            color: #2d3436;
+            transition: 0.3s;
+        }
+
+        .cart-icon:hover, .user-icon:hover {
+            color: #667eea;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero-content h2 {
+            font-size: 20px;
+            letter-spacing: 3px;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102,126,234,0.3);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid #667eea;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #666;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            transition: 0.3s;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .category-card i {
+            font-size: 48px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .category-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Products Grid */
+        .featured-products {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #2d3436;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .product-price s {
+            font-size: 14px;
+            color: #999;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.05);
+        }
+
+        /* Dashboard Section */
+        .dashboard-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .dashboard-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+        }
+
+        .stat-card i {
+            font-size: 48px;
+            color: #667eea;
+        }
+
+        .stat-info h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #2d3436;
+        }
+
+        .stat-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .dashboard-charts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .chart-container h4 {
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+
+        #topProductsList {
+            list-style: none;
+        }
+
+        #topProductsList li {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-rank {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .owner-card {
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .owner-card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .contact-detail i {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-detail h4 {
+            margin-bottom: 5px;
+            color: #2d3436;
+        }
+
+        .contact-detail p {
+            color: #666;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .map-container {
+            margin-top: 50px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+            z-index: 2000;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cart-item-info h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .remove-item {
+            color: #f5576c;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .checkout-btn {
+            width: 100%;
+        }
+
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2d3436;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            transform: translateX(400px);
+            transition: 0.3s;
+            z-index: 3000;
+        }
+
+        .toast-notification.show {
+            transform: translateX(0);
+        }
+
+        /* Load More */
+        .load-more {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3436;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col p {
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #bbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dashboard-charts,
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu ul {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .top-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="owner-info">
+                    <i class="fas fa-user"></i>
+                    <span>T Vijay Karthik | Andhra Pradesh, India</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 98765 43210</span>
+                    <i class="fas fa-envelope"></i>
+                    <span>vijay@digitalheroes.com</span>
+                </div>
+                <div class="announcement">
+                    <i class="fas fa-truck-fast"></i>
+                    <span>FREE SHIPPING WORLDWIDE | 30-DAY RETURNS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>DIGITAL <span>HEROES</span></h1>
+                    <p>by T Vijay Karthik</p>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a class="active" data-page="home">HOME</a></li>
+                        <li><a data-page="shop">SHOP</a></li>
+                        <li><a data-page="collections">COLLECTIONS</a></li>
+                        <li><a data-page="dashboard">DASHBOARD</a></li>
+                        <li><a data-page="about">ABOUT</a></li>
+                        <li><a data-page="contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-wrapper">
+                        <input type="text" placeholder="Search 200+ products..." id="searchInput">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="user-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h2>Premium Collection 2025</h2>
+                    <h1>Elevate Your Style</h1>
+                    <p>Discover the finest quality products curated by T Vijay Karthik from Andhra Pradesh</p>
+                    <button class="btn-primary" data-page="shop">Shop Now <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="collections">
+        <div class="container">
+            <div class="section-header">
+                <h2>Shop by Category</h2>
+                <p>Explore our premium collections</p>
+            </div>
+            <div class="categories-grid" id="categoriesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products" id="shop">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <p>Handpicked just for you</p>
+            </div>
+            <div class="products-grid" id="productsGrid"></div>
+            <div class="load-more">
+                <button class="btn-secondary" id="loadMoreBtn">Load More Products <i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Dashboard Section -->
+    <section class="dashboard-section" id="dashboard">
+        <div class="container">
+            <div class="section-header">
+                <h2>Seller Dashboard</h2>
+                <p>Real-time Analytics by T Vijay Karthik</p>
+            </div>
+            <div class="dashboard-container">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-shopping-bag"></i>
+                        <div class="stat-info">
+                            <h3 id="totalProducts">0</h3>
+                            <p>Total Products</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <div class="stat-info">
+                            <h3 id="totalRevenue">$0</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3 id="totalCustomers">0</h3>
+                            <p>Active Customers</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="stat-info">
+                            <h3 id="conversionRate">0%</h3>
+                            <p>Conversion Rate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h4>Sales Analytics</h4>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h4>Top Selling Products</h4>
+                        <div id="topProductsList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Know more about Digital Heroes</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://picsum.photos/id/104/600/400" alt="About Digital Heroes">
+                </div>
+                <div class="about-text">
+                    <h3>Welcome to Digital Heroes</h3>
+                    <p>Digital Heroes is a premium e-commerce platform founded by T Vijay Karthik from Andhra Pradesh, India. We are dedicated to providing the highest quality products with exceptional customer service.</p>
+                    <p>Our mission is to bring the best of global fashion and electronics to customers across India and worldwide. With over 40+ premium products, we ensure that every purchase meets the highest standards of quality.</p>
+                    <div class="owner-card">
+                        <h4><i class="fas fa-crown"></i> Meet the Founder</h4>
+                        <p><strong>T Vijay Karthik</strong> - A passionate entrepreneur from Andhra Pradesh, India, with a vision to revolutionize online shopping experiences. With years of experience in e-commerce and digital marketing, Vijay has built Digital Heroes to be a trusted name in premium retail.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3>Get In Touch</h3>
+                    <p style="margin-bottom: 30px; color:#666;">We'd love to hear from you! Reach out to us for any queries.</p>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Our Location</h4>
+                            <p>Digital Heroes HQ,<br>Andhra Pradesh, India - 530001</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p>+91 98765 43210<br>+91 87654 32109</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>vijay@digitalheroes.com<br>support@digitalheroes.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width:100%">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.88006807068!2d83.2185076952519!3d17.686815921791905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395a7b8f4b7e6d%3A0x8b9a8f8f8f8f8f8f!2sVisakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>DIGITAL HEROES</h3>
+                    <p>Premium e-commerce store by T Vijay Karthik, delivering quality products from Andhra Pradesh, India to the world.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="shop">Shop</a></li>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for exclusive offers!</p>
+                    <div class="search-wrapper" style="margin-top: 15px;">
+                        <input type="email" placeholder="Your email">
+                        <i class="fas fa-paper-plane" style="cursor:pointer"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Digital Heroes | Developed by T Vijay Karthik, Andhra Pradesh, India | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button class="btn-primary checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast"></div>
+
+    <script>
+        // Product Database with 48+ Images
+        const products = [
+            { id: 1, name: "Premium Leather Jacket", price: 299, oldPrice: 499, category: "men", image: "https://picsum.photos/id/20/400/500", badge: "Hot", sales: 245 },
+            { id: 2, name: "Designer Handbag", price: 199, oldPrice: 399, category: "women", image: "https://picsum.photos/id/21/400/500", badge: "Best Seller", sales: 189 },
+            { id: 3, name: "Smart Watch Series X", price: 399, oldPrice: 599, category: "electronics", image: "https://picsum.photos/id/22/400/500", badge: "New", sales: 567 },
+            { id: 4, name: "Sunglasses Premium", price: 89, oldPrice: 149, category: "accessories", image: "https://picsum.photos/id/23/400/500", badge: "Sale", sales: 334 },
+            { id: 5, name: "Sneakers Ultra", price: 129, oldPrice: 229, category: "men", image: "https://picsum.photos/id/24/400/500", badge: "Trending", sales: 445 },
+            { id: 6, name: "Designer Dress", price: 159, oldPrice: 299, category: "women", image: "https://picsum.photos/id/25/400/500", badge: "Limited", sales: 278 },
+            { id: 7, name: "Wireless Earbuds", price: 79, oldPrice: 149, category: "electronics", image: "https://picsum.photos/id/26/400/500", badge: "Hot", sales: 890 },
+            { id: 8, name: "Leather Wallet", price: 49, oldPrice: 89, category: "accessories", image: "https://picsum.photos/id/27/400/500", badge: "Sale", sales: 567 },
+            { id: 9, name: "Denim Jacket", price: 89, oldPrice: 169, category: "men", image: "https://picsum.photos/id/28/400/500", badge: "Popular", sales: 345 },
+            { id: 10, name: "Evening Gown", price: 249, oldPrice: 449, category: "women", image: "https://picsum.photos/id/29/400/500", badge: "Premium", sales: 123 },
+            { id: 11, name: "Gaming Headset", price: 119, oldPrice: 199, category: "electronics", image: "https://picsum.photos/id/30/400/500", badge: "Best", sales: 456 },
+            { id: 12, name: "Silver Necklace", price: 69, oldPrice: 129, category: "accessories", image: "https://picsum.photos/id/31/400/500", badge: "Elegant", sales: 234 },
+            { id: 13, name: "Cotton T-Shirt", price: 29, oldPrice: 49, category: "men", image: "https://picsum.photos/id/32/400/500", badge: "Basic", sales: 789 },
+            { id: 14, name: "Silk Scarf", price: 39, oldPrice: 79, category: "women", image: "https://picsum.photos/id/33/400/500", badge: "Style", sales: 345 },
+            { id: 15, name: "Tablet Pro", price: 499, oldPrice: 699, category: "electronics", image: "https://picsum.photos/id/34/400/500", badge: "New", sales: 234 },
+            { id: 16, name: "Leather Belt", price: 35, oldPrice: 69, category: "accessories", image: "https://picsum.photos/id/35/400/500", badge: "Classic", sales: 456 },
+            { id: 17, name: "Hoodie Premium", price: 79, oldPrice: 149, category: "men", image: "https://picsum.photos/id/36/400/500", badge: "Cozy", sales: 567 },
+            { id: 18, name: "Floral Dress", price: 89, oldPrice: 169, category: "women", image: "https://picsum.photos/id/37/400/500", badge: "Summer", sales: 389 },
+            { id: 19, name: "Bluetooth Speaker", price: 59, oldPrice: 99, category: "electronics", image: "https://picsum.photos/id/38/400/500", badge: "Sound", sales: 678 },
+            { id: 20, name: "Gold Earrings", price: 99, oldPrice: 199, category: "accessories", image: "https://picsum.photos/id/39/400/500", badge: "Luxury", sales: 234 },
+            { id: 21, name: "Sports Shoes", price: 109, oldPrice: 189, category: "men", image: "https://picsum.photos/id/40/400/500", badge: "Sport", sales: 567 },
+            { id: 22, name: "Leather Boots", price: 159, oldPrice: 279, category: "women", image: "https://picsum.photos/id/41/400/500", badge: "Winter", sales: 345 },
+            { id: 23, name: "Smartphone X", price: 699, oldPrice: 899, category: "electronics", image: "https://picsum.photos/id/42/400/500", badge: "Flagship", sales: 890 },
+            { id: 24, name: "Diamond Ring", price: 299, oldPrice: 599, category: "accessories", image: "https://picsum.photos/id/43/400/500", badge: "Premium", sales: 123 },
+            { id: 25, name: "Formal Shirt", price: 49, oldPrice: 89, category: "men", image: "https://picsum.photos/id/44/400/500", badge: "Office", sales: 456 },
+            { id: 26, name: "Summer Top", price: 29, oldPrice: 59, category: "women", image: "https://picsum.photos/id/45/400/500", badge: "Casual", sales: 678 },
+            { id: 27, name: "Laptop Ultra", price: 1299, oldPrice: 1699, category: "electronics", image: "https://picsum.photos/id/46/400/500", badge: "Powerful", sales: 234 },
+            { id: 28, name: "Watch Classic", price: 149, oldPrice: 299, category: "accessories", image: "https://picsum.photos/id/47/400/500", badge: "Timeless", sales: 345 },
+            { id: 29, name: "Jogger Pants", price: 39, oldPrice: 79, category: "men", image: "https://picsum.photos/id/48/400/500", badge: "Comfort", sales: 567 },
+            { id: 30, name: "Designer Jeans", price: 79, oldPrice: 149, category: "women", image: "https://picsum.photos/id/49/400/500", badge: "Fashion", sales: 456 },
+            { id: 31, name: "Camera 4K", price: 499, oldPrice: 799, category: "electronics", image: "https://picsum.photos/id/50/400/500", badge: "Pro", sales: 189 },
+            { id: 32, name: "Sunglasses Aviator", price: 59, oldPrice: 119, category: "accessories", image: "https://picsum.photos/id/51/400/500", badge: "Style", sales: 678 },
+            { id: 33, name: "Sweater Wool", price: 69, oldPrice: 129, category: "men", image: "https://picsum.photos/id/52/400/500", badge: "Warm", sales: 345 },
+            { id: 34, name: "Skirt Mini", price: 39, oldPrice: 79, category: "women", image: "https://picsum.photos/id/53/400/500", badge: "Trendy", sales: 456 },
+            { id: 35, name: "Drone Pro", price: 899, oldPrice: 1299, category: "electronics", image: "https://picsum.photos/id/54/400/500", badge: "Aerial", sales: 123 },
+            { id: 36, name: "Backpack", price: 49, oldPrice: 99, category: "accessories", image: "https://picsum.photos/id/55/400/500", badge: "Travel", sales: 789 },
+            { id: 37, name: "Polo T-Shirt", price: 35, oldPrice: 69, category: "men", image: "https://picsum.photos/id/56/400/500", badge: "Casual", sales: 567 },
+            { id: 38, name: "Blazer Women", price: 129, oldPrice: 249, category: "women", image: "https://picsum.photos/id/57/400/500", badge: "Formal", sales: 234 },
+            { id: 39, name: "VR Headset", price: 299, oldPrice: 499, category: "electronics", image: "https://picsum.photos/id/58/400/500", badge: "VR", sales: 345 },
+            { id: 40, name: "Wallet RFID", price: 29, oldPrice: 59, category: "accessories", image: "https://picsum.photos/id/59/400/500", badge: "Secure", sales: 456 },
+            { id: 41, name: "Track Pants", price: 45, oldPrice: 89, category: "men", image: "https://picsum.photos/id/60/400/500", badge: "Sporty", sales: 678 },
+            { id: 42, name: "Cocktail Dress", price: 179, oldPrice: 329, category: "women", image: "https://picsum.photos/id/61/400/500", badge: "Party", sales: 234 },
+            { id: 43, name: "Power Bank", price: 39, oldPrice: 79, category: "electronics", image: "https://picsum.photos/id/62/400/500", badge: "Charger", sales: 890 },
+            { id: 44, name: "Necklace Set", price: 79, oldPrice: 159, category: "accessories", image: "https://picsum.photos/id/63/400/500", badge: "Gift", sales: 345 },
+            { id: 45, name: "Cargo Pants", price: 55, oldPrice: 99, category: "men", image: "https://picsum.photos/id/64/400/500", badge: "Utility", sales: 456 },
+            { id: 46, name: "Cardigan", price: 65, oldPrice: 119, category: "women", image: "https://picsum.photos/id/65/400/500", badge: "Cozy", sales: 234 },
+            { id: 47, name: "Smart Home Hub", price: 149, oldPrice: 249, category: "electronics", image: "https://picsum.photos/id/66/400/500", badge: "Smart", sales: 567 },
+            { id: 48, name: "Bracelet Silver", price: 45, oldPrice: 89, category: "accessories", image: "https://picsum.photos/id/67/400/500", badge: "Elegant", sales: 345 }
+        ];
+
+        // Categories
+        const categories = [
+            { name: "Men's Fashion", icon: "fas fa-tshirt", count: 12 },
+            { name: "Women's Fashion", icon: "fas fa-female", count: 12 },
+            { name: "Electronics", icon: "fas fa-laptop", count: 12 },
+            { name: "Accessories", icon: "fas fa-gem", count: 12 }
+        ];
+
+        // Cart Array
+        let cart = [];
+        let currentPage = 1;
+        const productsPerPage = 12;
+        let salesChart = null;
+
+        // Initialize Store
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCategories();
+            loadProducts();
+            updateDashboard();
+            setupEventListeners();
+            initializeChart();
+        });
+
+        function loadCategories() {
+            const grid = document.getElementById('categoriesGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = categories.map(cat => `
+                <div class="category-card" onclick="filterByCategory('${cat.name}')">
+                    <i class="${cat.icon}"></i>
+                    <h3>${cat.name}</h3>
+                    <p>${cat.count} Products</p>
+                </div>
+            `).join('');
+        }
+
+        function loadProducts(category = 'all') {
+            const filtered = category === 'all' ? products : products.filter(p => {
+                const catMap = {
+                    "Men's Fashion": "men",
+                    "Women's Fashion": "women",
+                    "Electronics": "electronics",
+                    "Accessories": "accessories"
+                };
+                return p.category === catMap[category];
+            });
+            
+            const start = 0;
+            const end = currentPage * productsPerPage;
+            const paginated = filtered.slice(start, end);
+            
+            const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = paginated.map(product => `
+                <div class="product-card" data-id="${product.id}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        <span class="product-badge">${product.badge}</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <div class="product-price">
+                            $${product.price} <s>$${product.oldPrice}</s>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart(${product.id})">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (loadMoreBtn) {
+                loadMoreBtn.style.display = filtered.length > paginated.length ? 'inline-block' : 'none';
+            }
+        }
+
+        function filterByCategory(category) {
+            currentPage = 1;
+            loadProducts(category);
+            showToast(`Showing ${category} collection`);
+            document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+            
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            
+            updateCartUI();
+            showToast(`${product.name} added to cart! 🛒`);
+            updateDashboard();
+        }
+
+        function updateCartUI() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.querySelector('.cart-count');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cartItems) {
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<p style="text-align:center;padding:40px;">Your cart is empty</p>';
+                } else {
+                    cartItems.innerHTML = cart.map(item => `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="cart-item-info">
+                                <h4>${item.name}</h4>
+                                <div class="cart-item-price">$${item.price}</div>
+                                <div>Quantity: ${item.quantity}</div>
+                                <span class="remove-item" onclick="removeFromCart(${item.id})">Remove</span>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+            
+            if (cartCount) {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+            }
+            
+            if (cartTotal) {
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                cartTotal.textContent = `$${total}`;
+            }
+            
+            updateDashboard();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+            showToast('Item removed from cart');
+        }
+
+        function updateDashboard() {
+            const totalProductsElem = document.getElementById('totalProducts');
+            const totalRevenueElem = document.getElementById('totalRevenue');
+            const totalCustomersElem = document.getElementById('totalCustomers');
+            const conversionRateElem = document.getElementById('conversionRate');
+            
+            if (totalProductsElem) totalProductsElem.textContent = products.length;
+            if (totalRevenueElem) {
+                const totalSales = products.reduce((sum, p) => sum + (p.sales * p.price), 0);
+                totalRevenueElem.textContent = `$${totalSales.toLocaleString()}`;
+            }
+            if (totalCustomersElem) totalCustomersElem.textContent = Math.floor(products.length * 12.5);
+            if (conversionRateElem) conversionRateElem.textContent = `${((cart.length / products.length) * 100).toFixed(1)}%`;
+            
+            updateTopProducts();
+            updateSalesChart();
+        }
+
+        function updateTopProducts() {
+            const topList = document.getElementById('topProductsList');
+            if (!topList) return;
+            
+            const topProducts = [...products].sort((a, b) => b.sales - a.sales).slice(0, 5);
+            topList.innerHTML = topProducts.map((product, index) => `
+                <li>
+                    <span><span class="product-rank">#${index + 1}</span> ${product.name}</span>
+                    <span style="color:#667eea;font-weight:600;">${product.sales} sales</span>
+                </li>
+            `).join('');
+        }
+
+        function initializeChart() {
+            const ctx = document.getElementById('salesChart');
+            if (!ctx) return;
+            
+            salesChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Sales Revenue ($)',
+                        data: [12500, 15200, 18900, 22100, 25800, 29400],
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'top' } }
+                }
+            });
+        }
+
+        function updateSalesChart() {
+            if (salesChart) {
+                const monthlySales = [12500, 15200, 18900, 22100, 25800, 29400];
+                const multiplier = 1 + (cart.length / 100);
+                const newData = monthlySales.map(s => Math.floor(s * multiplier));
+                salesChart.data.datasets[0].data = newData;
+                salesChart.update();
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function setupEventListeners() {
+            const cartIcon = document.getElementById('cartIcon');
+            const cartSidebar = document.getElementById('cartSidebar');
+            const closeCart = document.querySelector('.close-cart');
+            
+            if (cartIcon) cartIcon.addEventListener('click', () => cartSidebar.classList.add('active'));
+            if (closeCart) closeCart.addEventListener('click', () => cartSidebar.classList.remove('active'));
+            
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const filtered = products.filter(p => p.name.toLowerCase().includes(searchTerm) || p.category.toLowerCase().includes(searchTerm));
+                    const grid = document.getElementById('productsGrid');
+                    if (grid && searchTerm.length > 2) {
+                        grid.innerHTML = filtered.map(product => `
+                            <div class="product-card" data-id="${product.id}">
+                                <div class="product-image"><img src="${product.image}" alt="${product.name}"><span class="product-badge">${product.badge}</span></div>
+                                <div class="product-info"><h3>${product.name}</h3><div class="product-price">$${product.price} <s>$${product.oldPrice}</s></div>
+                                <button class="add-to-cart" onclick="addToCart(${product.id})"><i class="fas fa-shopping-cart"></i> Add to Cart</button></div>
+                            </div>
+                        `).join('');
+                    } else if (searchTerm.length === 0) loadProducts();
+                });
+            }
+            
+            const navLinks = document.querySelectorAll('.nav-menu a, .btn-primary[data-page], .footer-col a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = link.getAttribute('data-page');
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    if (page === 'home') window.scrollTo({ top: 0, behavior: 'smooth' });
+                    else if (page === 'shop') document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+                    else if (page === 'dashboard') document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+                    else if (page === 'collections') document.querySelector('.categories').scrollIntoView({ behavior: 'smooth' });
+                    else if (page === 'about') document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                    else if (page === 'contact') document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (loadMoreBtn) loadMoreBtn.addEventListener('click', () => { currentPage++; loadProducts(); });
+            
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', () => {
+                    if (cart.length === 0) showToast('Your cart is empty! Add some items first.');
+                    else {
+                        showToast(`Order placed successfully! Total: $${cart.reduce((sum, i) => sum + (i.price * i.quantity), 0)}`);
+                        cart = [];
+                        updateCartUI();
+                        document.getElementById('cartSidebar').classList.remove('active');
+                    }
+                });
+            }
+            
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    showToast('Message sent successfully! We will get back to you soon.');
+                    contactForm.reset();
+                });
+            }
+        }
+
+        window.addToCart = addToCart;
+        window.removeFromCart = removeFromCart;
+        window.filterByCategory = filterByCategory;
+    </script>
+</body>
+</html>
